@@ -1,0 +1,31 @@
+name: Lab tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  forge-test:
+    name: forge test (lab 01)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+
+      - name: Show Forge version
+        run: forge --version
+
+      - name: Build
+        working-directory: labs/01-price-impact-and-slippage
+        run: forge build
+
+      - name: Run tests
+        working-directory: labs/01-price-impact-and-slippage
+        run: forge test -vv

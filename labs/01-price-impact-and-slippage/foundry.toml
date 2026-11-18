@@ -1,0 +1,12 @@
+# Lab 01: price impact and slippage on a local Uniswap v4 pool.
+# Built on the official Uniswap Foundation v4-template, pinned as a git
+# submodule at ../../lib/v4-template (commit 1fbf95547791f0821a170b88c750cb2e04e6818b).
+[profile.default]
+src = "test"
+test = "test"
+out = "out"
+libs = ["../../lib"]
+solc_version = "0.8.30"
+evm_version = "cancun"
+bytecode_hash = "none"
+via_ir = false
